@@ -1,0 +1,55 @@
+/*
+ * All Globals
+ *
+ **/
+ html {
+     background-color: #ddd;
+ }
+ .file-field > .btn > span {
+     color: #fff !important;
+ }
+.primary-color, .file-field > .btn {
+    background-color: #3B89B6 !important;
+}
+.primary-color:hover, .file-field > .btn:hover {
+    background-color: #529cc7 !important;
+}
+* {
+    color: black;
+}
+.z-depth-0 {
+    box-shadow: none;
+}
+ /*
+  * Navbar
+  **/
+.mainLogo {
+    height: 59px;
+    width: auto;
+}
+nav ul a {
+    color: #9E9E9E;
+}
+nav ul a:hover {
+    color: #3B89B6;
+}
+nav ul li:hover {
+    background-color: #fff;
+}
+i.fa.fa-bars {
+    color: #9E9E9E;
+    margin-left: 10px;
+}
+nav {
+    /*background-color: #3B89B6;*/
+    background-color: #fff;
+}
+
+
+/*
+ * Media Query dashbaord
+ **/
+@media only screen and (max-width: 992px) {
+.side-nav.fixed {
+    left: 0 !important;
+}

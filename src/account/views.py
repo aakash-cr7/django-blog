@@ -39,12 +39,6 @@ def logout(request):
     auth_logout(request)
     return redirect('login')
 
-@require_GET
-@login_required
-def dashboard(request):
-    return render(request, 'base/dashboard.html')
-
-
 @require_http_methods(['GET', 'POST'])
 def signup(request):
     if request.user.is_authenticated():

@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load material_form %}
+{% load urlify %}
+{% load staticfiles %}
+{% block pagetitle %}{% endblock %}
+{% block extrahead %}
+<link href="{% static 'base/css/detail_post.css' %}" rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <div class="card z-depth-1">
+                    <h4 class="post-title">{{ post.title }}</h4>
+
+                    <small class="publish-date">{{ post.publish }}, <span class="post-time">{{ post.timestamp|time }}</span></small>
+
+                    {% if post.draft %}
+                    <span class="draft-mode">Draft Mode</span>
+                    {% endif %}
+
+                    <div class="social">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><img class="social-icon" src="{% static 'base/images/social_icons/facebook.png' %}"></a>
+                        <a href="https://twitter.com/home?status={{ post.content|truncatechars:80|urlify }}%20{{ request.build_absolute_uri }}"><img class="social-icon social-icon-twitter" src="{% static 'base/images/social_icons/twitter.png' %}"></a>
+                        <a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'><img class="social-icon social-icon-google" src="{% static 'base/images/social_icons/google_plus.png' %}"></a>
+                        <!-- <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ share_string }}&source={{ request.build_absolute_uri }}">Linkedin</a> -->
+                    </div>
+                    {% if post.image %}
+                    <img src="{{ post.image.url}}" class="blog-pic">
+                    {% endif %}
+
+                    <p>
+                        {{ post.content }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

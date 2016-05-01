@@ -1,0 +1,65 @@
+/*
+ * Posts list
+ **/
+.card .card-image img {
+    min-height: 400px;
+    max-height: 400px;
+}
+.card .card-action {
+    border-top: 0;
+    padding: 7px 7px
+}
+.card .card-content {
+    padding: 5px 17px;
+}
+
+.card .card-action a.view-blog-btn {
+    color: #757575;
+    padding: 7px 10px;
+    font-size: small;
+}
+.card .card-action a.view-blog-btn:hover {
+    background-color: #e9e9e9;
+    border-radius: 2px;
+}
+span.card-title a {
+    color: #757575;
+    font-weight: bold;
+}
+span.card-title a:hover {
+    text-decoration: underline;
+}
+.publish-date {
+    position: relative;
+    top: -14px;
+}
+.draft-mode {
+    color: red;
+    position: relative;
+    top: -15px;
+    font-size: 13px;
+}
+.pagination {
+    width: 162px;
+    margin: 0 auto;
+}
+.prev-post, .next-post {
+    padding: 5px 8px;
+    border: 1px solid #BDBDBD;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: #fff;
+}
+.next-post {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    position: relative;
+        left: -5px;
+}
+.disabled-next, .disabled-prev {
+    background-color: #CCC;
+    color: #B7B7B7 !important;
+    cursor: not-allowed;
+}

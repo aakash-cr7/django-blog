@@ -97,3 +97,6 @@ old_settings.py
 
 #Local development file
 dev.py
+
+# Todo list
+todo.txt

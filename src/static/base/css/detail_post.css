@@ -1,0 +1,32 @@
+.card {
+    padding: 20px;
+    padding-left: 50px;
+}
+.post-title {
+    color: #757575;
+}
+.draft-mode {
+    color: red;
+}
+.publish-date, .draft-mode {
+    position: relative;
+        top: -16px;
+}
+.social {
+    position: relative;
+    top: -8px;
+}
+.social-icon {
+    height: 30px;
+    width: auto;
+}
+.social-icon-twitter {
+    height: 36px;
+    position: relative;
+        top: 3px;
+        left: 4px;
+}
+.blog-pic {
+    width: 100%;
+    max-height: 550px;
+}
