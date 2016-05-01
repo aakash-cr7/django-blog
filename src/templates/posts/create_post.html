@@ -2,16 +2,18 @@
 {% load material_form %}
 {% load staticfiles %}
 {% block pagetitle %}{% endblock %}
+{% block extrahead %}
+    {{ form.media }}
+{% endblock %}
 {% block content %}
 <main>
-    <div class="conainer">
-        <div class="row">
+        <div class="row create-post-row">
             <div class="col s12 m8 l6 offset-m2 offset-l3">
                 <div class="card-panel">
                     <h4>{{ title }}</h4>
                     <form action="" method='post' enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% form form=form %}{% endform %}
+                        {{ form.as_p }}
                         <div class="row">
                             <div class="col s12">
                                 <button type="submit" name="post-btn" class="btn waves-effect waves-light left primary-color">Post</button>
@@ -21,6 +23,6 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </main>
 {% endblock %}

@@ -73,6 +73,8 @@ STATICFILES_DIRS = [
     normpath(join(SITE_ROOT, 'static')),
 ]
 
+STATIC_ROOT = normpath(join(SITE_ROOT, 'static_cdn'))
+
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -153,8 +155,13 @@ DJANGO_APPS = (
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'account',
-    'material',
     'posts',
+)
+
+# Third party Apps go here.
+THIRD_PARTY_APPS = (
+    'material',
+    'pagedown',
 )
 
 ########## LOGGING CONFIGURATION
@@ -168,7 +175,7 @@ LOCAL_APPS = (
 ########## END LOGGING CONFIGURATION
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 ########## END APP CONFIGURATION
 
 

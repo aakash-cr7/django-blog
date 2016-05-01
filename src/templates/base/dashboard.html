@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load material_form %}
+{% load staticfiles %}
+{% block pagetitle %}{% endblock %}
+{% block outercontent %}
+<aside>
+    <ul class="side-nav fixed dashboard-side-nav z-depth-0">
+        <li class="dashboard-header"><img src="{% static 'base/images/dashboard_bg.png' %}"/></li>
+        <li><a class="waves-effect waves-light">My Team</a></li>
+        <li><a href="#!" class="waves-effect waves-light">My Predictions</a></li>
+        <li><a href="#!" class="waves-effect waves-light">Settings</a></li>
+        {% if request.user.is_superuser %}
+        <li><a href="{% url 'posts:create_post' %}" class="waves-effect waves-light">Create Post</a></li>
+        {% endif %}
+    </ul>
+</aside>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="container custom-dashboard-container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel">
+                    Welcome {{ user.username }}
+                    <a href="{% url 'logout' %}" class="btn waves-effect waves-light">LOGOUT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+{% block morescripts %}
+<script>
+// Initialize collapse button
+ $(".button-collapse").sideNav();
+ // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+ //$('.collapsible').collapsible();
+</script>
+{% endblock %}

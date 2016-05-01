@@ -2,14 +2,14 @@
  * All Globals
  *
  **/
- html {
+ html, div.create-post-row {
      background-color: #ddd;
  }
  .file-field > .btn > span {
      color: #fff !important;
  }
 .primary-color, .file-field > .btn {
-    background-color: #3B89B6 !important;
+    background-color: red !important;
 }
 .primary-color:hover, .file-field > .btn:hover {
     background-color: #529cc7 !important;
@@ -19,6 +19,16 @@
 }
 .z-depth-0 {
     box-shadow: none;
+}
+/*
+ * Markdown editor
+ **/
+.wmd-panel {
+    overflow: scroll;
+    margin-left: 15%;
+}
+p code {
+    background: #ddd;
 }
  /*
   * Navbar
@@ -34,7 +44,7 @@ nav ul a:hover {
     color: #3B89B6;
 }
 nav ul li:hover {
-    background-color: #fff;
+    background-color: #fff !important;
 }
 i.fa.fa-bars {
     color: #9E9E9E;
@@ -45,7 +55,42 @@ nav {
     background-color: #fff;
 }
 
-
+/*
+ * Dashboard
+ **/
+.mdi-navigation-menu {
+    display: none;
+}
+.side-nav li, .side-nav li a {
+    height: 46px;
+    line-height: 3.2;
+    padding: 0;
+}
+.dashboard-side-nav {
+    top: 64px;
+}
+li.dashboard-header {
+    padding: 0 !important;
+    height: 180px !important;
+}
+.dashboard-header:hover {
+    background-color: #fff !important;
+}
+.dashboard-header img {
+    width: 100%;
+    height: 180px;
+}
+.custom-dashboard-container {
+    padding: 0 0 0 23px;
+    margin-right: 0;
+    margin-left: 230px;
+    width: 75%;
+}
+.side-nav.fixed a {
+    color: #757575;
+    width: 100%;
+    padding: 0 30px;
+}
 /*
  * Media Query dashbaord
  **/
