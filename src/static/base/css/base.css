@@ -30,6 +30,12 @@
 p code {
     background: #ddd;
 }
+/* fix for checkbox , materialize css position checkboxes absolutly, left: -9999px */
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    visibility: visible;
+    position: relative;
+    left: 0;
+}
  /*
   * Navbar
   **/

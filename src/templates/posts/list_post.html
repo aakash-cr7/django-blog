@@ -33,7 +33,7 @@
                             {% endif %}
                         {% endif %}
 
-                        {{ post.get_markdown }}
+                        {{ post.get_markdown|truncatewords_html:10 }}
                     </div>
                     <div class="card-action">
                         <a class="view-blog-btn waves-effect waves-light" href="{{ post.get_absolute_url }}">Continue reading ..</a>
