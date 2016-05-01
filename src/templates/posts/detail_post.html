@@ -30,7 +30,7 @@
                     <img src="{{ post.image.url}}" class="blog-pic">
                     {% endif %}
 
-                    <div class="content-markdown">{{ post.content }}</div>
+                    {{ post.get_markdown }}
                 </div>
             </div>
         </div>

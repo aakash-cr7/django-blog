@@ -33,7 +33,7 @@
                             {% endif %}
                         {% endif %}
 
-                        <p class="content-markdown">{{ post.content|truncatechars:20 }}</p>
+                        {{ post.get_markdown }}
                     </div>
                     <div class="card-action">
                         <a class="view-blog-btn waves-effect waves-light" href="{{ post.get_absolute_url }}">Continue reading ..</a>
