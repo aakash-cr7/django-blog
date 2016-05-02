@@ -2,22 +2,61 @@
 {% load material_form %}
 {% load staticfiles %}
 {% block pagetitle %}{% endblock %}
+{% block extrahead %}
+    {{ form.media }}
+{% endblock %}
 {% block content %}
 <main>
     <div class="conainer">
         <div class="row">
-            <div class="col s12 m8 l6 offset-m2 offset-l3">
+
+            <div class="col s6">
                 <div class="card-panel">
                     <h4>{{ title }}</h4>
                     <form action="" method='post'>
                         {% csrf_token %}
-                        {% form form=form %}{% endform %}
+                        <div class="fieldWrapper">
+                            {{ form.title.errors }}
+                            {{ form.title.label_tag}}
+                            {{ form.title }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.content.errors }}
+                            {{ form.content.label_tag}}
+                            {{ form.content }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.image.errors }}
+                            {{ form.image.label_tag}}
+                            {{ form.image }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.draft.errors }}
+                            {{ form.draft.label_tag}}
+                            {{ form.draft }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.publish.errors }}
+                            {{ form.publish.label_tag}}
+                            {{ form.publish }}
+                        </div>
+                        
                         <div class="row">
                             <div class="col s12">
                                 <button type="submit" name="post-btn" class="btn waves-effect waves-light left primary-color">Post</button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div class="col s6">
+                <div class="card-panel">
+                    <h4>Preview</h4>
+                    <div class="content-preview">
+                        <h3 id="preview-title"></h3>
+                        <p id="preview-content"></p>
+                    </div>
                 </div>
             </div>
         </div>
