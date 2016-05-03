@@ -156,6 +156,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'account',
     'posts',
+    'comments',
 )
 
 # Third party Apps go here.
