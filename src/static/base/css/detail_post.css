@@ -1,16 +1,26 @@
-.card {
-    padding: 20px;
-    padding-left: 50px;
+.card .card-content {
+    padding: 0px;
+    padding-left: 33px;
 }
-.post-title {
+.card .card-content .post-title {
     color: #757575;
+    font-weight: 400;
+}
+.card .card-action {
+    background-color: #eee;
+    padding: 0;
+}
+.comment-div {
+    padding: 10px;
+    padding-left: 33px;
+    border-bottom: 1px solid #ccc;
 }
 .draft-mode {
     color: red;
 }
 .publish-date, .draft-mode {
     position: relative;
-        top: -16px;
+        top: -15px;
 }
 .social {
     position: relative;
