@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.db.models.signals import pre_save # Right before the model is save do something
 from django.utils import timezone
@@ -6,6 +7,7 @@ from django.utils.text import slugify
 from django.utils.safestring import mark_safe
 
 from markdown_deux import markdown
+from comments.models import Comment
 
 # Create your models here.
 class PostManager(models.Manager):
@@ -38,6 +40,18 @@ class Post(models.Model):
         content = self.content
         markdown_text = markdown(content)
         return mark_safe(markdown_text)
+
+    @property
+    def comments(self):
+        instance = self
+        queryset = Comment.objects.filter_by_instance(instance)
+        return queryset
+
+    @property
+    def get_content_type(self):
+        instance = self
+        content_type = ContentType.objects.get_for_model(instance.__class__)
+        return content_type
 
     class Meta:
         ordering = ["-timestamp"]

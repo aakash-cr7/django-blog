@@ -8,6 +8,7 @@ from urllib.parse import quote
 
 from .models import Post
 from .forms import PostForm
+from comments.forms import CommentForm
 from comments.models import Comment
 
 # Create your views here.
@@ -50,14 +51,34 @@ def detail_post(request, slug = None):
     # create url encoded strings
     # "I am superman" => "I%20am%20superman"
     share_string = quote(instance.content)
-    content_type = ContentType.objects.get_for_model(Post)
-    obj_id = instance.id
-    comments = Comment.objects.filter(content_type = content_type, object_id = obj_id)
-    print(comments)
+    # get comments using Comments model manager
+    comments = Comment.objects.filter_by_instance(instance)
+
+    # Set initial data fot comment form
+    initial_data = {
+        'content_type': instance.get_content_type,
+        'object_id': instance.id,
+    }
+    comment_form = CommentForm(request.POST or None, initial = initial_data)
+    if comment_form.is_valid():
+        model_type = comment_form.cleaned_data.get('content_type')
+        content_type = ContentType.objects.get(model = model_type)
+        obj_id = comment_form.cleaned_data.get('object_id')
+        content_data = comment_form.cleaned_data.get('content')
+        new_comment, created = Comment.objects.get_or_create(
+                                            user = request.user,
+                                            content_type = content_type,
+                                            object_id = obj_id,
+                                            content = content_data
+                                        )
+        # if created:
+        #     print('Comment created')
+    #print(instance.comments) # accesing property comments of Post
     context = {
         'post': instance,
         'share_string': share_string,
         'comments': comments,
+        'comment_form': comment_form,
     }
     return render(request, 'posts/detail_post.html', context)
 
