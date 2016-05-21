@@ -60,19 +60,24 @@ def detail_post(request, slug = None):
         'object_id': instance.id,
     }
     comment_form = CommentForm(request.POST or None, initial = initial_data)
+    print(comment_form.errors)
     if comment_form.is_valid():
         model_type = comment_form.cleaned_data.get('content_type')
         content_type = ContentType.objects.get(model = model_type)
         obj_id = comment_form.cleaned_data.get('object_id')
         content_data = comment_form.cleaned_data.get('content')
-        new_comment, created = Comment.objects.get_or_create(
+        new_comment = Comment.objects.create(
                                             user = request.user,
                                             content_type = content_type,
                                             object_id = obj_id,
                                             content = content_data
                                         )
+        new_comment.save()
         # if created:
         #     print('Comment created')
+        # else:
+        #     print('not created')
+        #     print(new_comment)
     #print(instance.comments) # accesing property comments of Post
     context = {
         'post': instance,
