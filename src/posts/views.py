@@ -10,7 +10,6 @@ from .models import Post
 from .forms import PostForm
 from comments.forms import CommentForm
 from comments.models import Comment
-
 # Create your views here.
 
 # List all the posts

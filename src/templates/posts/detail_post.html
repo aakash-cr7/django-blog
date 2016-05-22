@@ -15,6 +15,13 @@
 
                     <div class="card-content">
                         <span class="card-title post-title">{{ post.title }}</span>
+                        <span class="read-time" style="color:#757575; font-size:12px">
+                            {% if post.read_time <= 1 %}
+                            less than a min read
+                            {% else %}
+                            {{ post.read_time }} mins read
+                            {% endif %}
+                        </span>
                         <br>
                         <small class="publish-date">{{ post.publish }}, <span class="post-time">{{ post.timestamp|time }}</span></small>
 
